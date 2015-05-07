@@ -1,7 +1,17 @@
 BrowserQuest
 ============
 
-BrowserQuest is a HTML5/JavaScript multiplayer game experiment.
+BrowserQuest is a HTML5/JavaScript multiplayer game experiment initially created by Little Workshop.
+
+
+Planned Features
+----------------
+
+Ranged weapons
+Weapon selection
+Class selection
+More monsters
+More weapons
 
 
 Documentation
@@ -19,7 +29,9 @@ See the LICENSE file for details.
 
 Credits
 -------
-Created by [Little Workshop](http://www.littleworkshop.fr):
+BrowserQuest+ enhancement by Solarguy
+
+InitiallycCreated by [Little Workshop](http://www.littleworkshop.fr):
 
 * Franck Lecollinet - [@whatthefranck](http://twitter.com/whatthefranck)
 * Guillaume Lecollinet - [@glecollinet](http://twitter.com/glecollinet)
