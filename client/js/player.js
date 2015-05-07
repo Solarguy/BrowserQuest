@@ -1,5 +1,8 @@
 
 define(['character', 'exceptions'], function(Character, Exceptions) {
+       
+    var weapons = [];
+    var armors = [];
 
     var Player = Character.extend({
         MAX_LEVEL: 10,
@@ -14,7 +17,9 @@ define(['character', 'exceptions'], function(Character, Exceptions) {
         
             // sprites
             this.spriteName = "clotharmor";
+            this.armors[this.armors.length] = Types.getKindFromString(this.spriteName);
             this.weaponName = "sword1";
+            this.weapons[this.weapons.length] = Types.getKindFromString(this.weaponName);
         
             // modes
             this.isLootMoving = false;
@@ -23,7 +28,17 @@ define(['character', 'exceptions'], function(Character, Exceptions) {
     
         loot: function(item) {
             if(item) {
-                var rank, currentRank, msg, currentArmorName;
+                if (item.type === "armor") {
+                     item.onLoot(this);
+                     this.armors[this.armors.length] = item.kind;
+                } else if (item.type === "weapon") {
+                     item.onLoot(this);
+                     this.weapons[this.weapons.length] = item.kind;
+                }
+                
+                
+                  
+                /*var rank, currentRank, msg, currentArmorName;
             
                 if(this.currentArmorSprite) {
                     currentArmorName = this.currentArmorSprite.name;
@@ -47,7 +62,7 @@ define(['character', 'exceptions'], function(Character, Exceptions) {
                     } else if(rank <= currentRank) {
                         throw new Exceptions.LootException(msg);
                     }
-                }
+                }*/
             
                 log.info('Player '+this.id+' has looted '+item.id);
                 if(Types.isArmor(item.kind) && this.invincible) {
@@ -95,6 +110,22 @@ define(['character', 'exceptions'], function(Character, Exceptions) {
     
         hasWeapon: function() {
             return this.weaponName !== null;
+        },
+                                  
+        getArmors: function() {
+            return this.armors !== null;
+        },
+      
+        getWeapons: function() {
+            return this.weapons !== null;
+        },
+        
+        setArmors: function(armors) {
+            this.armors = armors;
+        },
+        
+        setWeapons: function(weapons) {
+            this.weapons = weapons;
         },
     
         switchWeapon: function(newWeaponName) {

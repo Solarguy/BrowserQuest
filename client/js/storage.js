@@ -77,11 +77,17 @@ define(function() {
             this.data.player.weapon = weapon;
             this.save();
         },
+                               
+        setPlayerInventory: function(armors, weapons) {
+            this.data.player.armors = armors;
+            this.data.player.weapons = weapons;
+        }
 
-        savePlayer: function(img, armor, weapon) {
+        savePlayer: function(img, armor, weapon, armors, weapons) {
             this.setPlayerImage(img);
             this.setPlayerArmor(armor);
             this.setPlayerWeapon(weapon);
+            this.setPlayerInventory(armors, weapons);
         },
     
         // Achievements

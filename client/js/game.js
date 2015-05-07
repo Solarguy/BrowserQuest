@@ -117,6 +117,8 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
             if(this.storage.hasAlreadyPlayed()) {
                 this.player.setSpriteName(this.storage.data.player.armor);
                 this.player.setWeaponName(this.storage.data.player.weapon);
+                this.player.setWeapons(this.storage.data.player.weapons);
+                this.player.setArmors(this.storage.data.player.weapons);
             }
         
         	this.player.setSprite(this.sprites[this.player.getSpriteName()]);
@@ -791,7 +793,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                     self.storage.initPlayer(self.player.name);
                     self.storage.savePlayer(self.renderer.getPlayerImage(),
                                             self.player.getSpriteName(),
-                                            self.player.getWeaponName());
+                                            self.player.getWeaponName(),
+                                            self.player.getArmors(),
+                                            self.player.getWeapons());
                     self.showNotification("Welcome to BrowserQuest!");
                 } else {
                     self.showNotification("Welcome back to BrowserQuest!");
@@ -1055,7 +1059,9 @@ function(InfoManager, BubbleManager, Renderer, Map, Animation, Sprite, AnimatedT
                 self.player.onSwitchItem(function() {
                     self.storage.savePlayer(self.renderer.getPlayerImage(),
                                             self.player.getArmorName(),
-                                            self.player.getWeaponName());
+                                            self.player.getWeaponName(),
+                                            self.player.getArmors(),
+                                            self.player.getWeapons()Ω);
                     if(self.equipment_callback) {
                         self.equipment_callback();
                     }

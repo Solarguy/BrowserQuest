@@ -16,10 +16,13 @@ define(['entity'], function(Entity) {
 
         onLoot: function(player) {
             if(this.type === "weapon") {
-                player.switchWeapon(this.itemKind);
-            }
-            else if(this.type === "armor") {
-                player.armorloot_callback(this.itemKind);
+                if (Types.getWeaponRank(this.kind) > Types.getWeaponRank(Types.getKindFromString(player.weaponName))) {
+                     player.switchWeapon(this.itemKind);
+                }
+            } else if(this.type === "armor") {
+                if (Types.getArmorRank(this.kind) > Types.getArmorRank(Types.getKindFromString(player.spriteName))) {
+                     player.armorloot_callback(this.itemKind);
+                }
             }
         },
 
