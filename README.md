@@ -1,4 +1,4 @@
-BrowserQuest
+BrowserQuest+
 ============
 
 BrowserQuest is a HTML5/JavaScript multiplayer game experiment initially created by Little Workshop.
@@ -7,7 +7,7 @@ BrowserQuest is a HTML5/JavaScript multiplayer game experiment initially created
 Planned Features
 ----------------
 
-Ranged weapons, weapon selection, classes (Mage, Divine, Trickster), more monsters, more weapons, locked doors, and much more.
+Ranged weapons, weapon selection, classes (Mage, Divine, Trickster), more monsters, more weapons, locked doors, traps, and much more.
 
 
 Documentation
